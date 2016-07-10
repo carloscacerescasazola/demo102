@@ -14,7 +14,8 @@ export class HomePage {
     let options = {
       destinationType: Camera.DestinationType.DATA_URL,
       targetWidth: 1000,
-      targetHeight: 1000
+      targetHeight: 1000,
+      quality: 100
     }
     Camera.getPicture( options )
     .then(imageData => {
