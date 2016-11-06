@@ -2,7 +2,8 @@ import {Component} from '@angular/core';
 import {Camera} from 'ionic-native';
 
 @Component({
-  templateUrl: 'build/pages/home/home.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
