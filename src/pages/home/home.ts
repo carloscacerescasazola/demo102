@@ -1,24 +1,28 @@
-import {Component} from '@angular/core';
-import {Camera} from 'ionic-native';
+import { Component } from '@angular/core';
+import { IonicPage } from 'ionic-angular';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  image: string;
+  image: string = null;
 
-  constructor() {}
+  constructor(
+    private camera: Camera
+  ) {}
 
   getPicture(){
-    let options = {
-      destinationType: Camera.DestinationType.DATA_URL,
+    let options: CameraOptions = {
+      destinationType: this.camera.DestinationType.DATA_URL,
       targetWidth: 1000,
       targetHeight: 1000,
       quality: 100
     }
-    Camera.getPicture( options )
+    this.camera.getPicture( options )
     .then(imageData => {
       this.image = `data:image/jpeg;base64,${imageData}`;
     })
